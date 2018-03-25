@@ -1,5 +1,6 @@
 <?php 
 $page = "timeline";
+session_start();
 ?>
 
 <!DOCTYPE html>

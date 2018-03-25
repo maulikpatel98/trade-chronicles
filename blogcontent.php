@@ -1,23 +1,25 @@
 <?php
 session_start();
-$id=$_GET["story_id"];
+if(!isset($_SESSION['user']))
+echo "<script>location.href='login.php?context=b'</script>";
+$id=$_GET["blog_id"];
 
-$qry="SELECT * FROM storycontent WHERE story_id=$id";
+$qry="SELECT * FROM blog WHERE blog_id=$id";
 $conn=mysqli_connect("localhost","root","","trade");
 $result=$conn->query($qry);
 
 $row=$result->fetch_assoc();
 
-$my_file = $row['story_file'];
-$handle = fopen($my_file, 'r') or die('Cannot open file:  '.$my_file);
-$data = fread($handle,filesize($my_file));
-
+$my_file = $row['blog_file'];
+$username = $row['username'];
+$handle = fopen('blog_files/'.$my_file, 'r') or die('Cannot open file:  '.$my_file);
+$data = fread($handle,filesize('blog_files/'.$my_file));
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Article</title>
+	<title>Blog</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -28,7 +30,7 @@ $data = fread($handle,filesize($my_file));
   <a href="index.php" class="logo">Trade Chronicle</a>
   
   <div class="header-right">
-  	<a href="http://commerce.gov.in/" style="float:right;padding:0px;"><img src="logo.jpg" style="float:right;margin-left:20px;padding:0px;verticle-align:center;width:70px;height:70px;border-radius:50%;"></a>
+    <a href="http://commerce.gov.in/" style="float:right;padding:0px;"><img src="logo.jpg" style="float:right;margin-left:20px;padding:0px;verticle-align:center;width:70px;height:70px;border-radius:50%;"></a>
     <?php
       if(isset($_SESSION['user'])) 
       echo '<a class="active" href="logout.php">logout</a>';
@@ -56,9 +58,15 @@ function googleTranslateElementInit() {
 
 <div class="storycontainer">
 	
-	<div class="storytitle"><b><?php echo $row['story_name'];?></b></div>
+	<div class="storytitle"><b><?php echo $row['blog_name'];?></b></div>
+		
+		<div class="blogwriter">
+		<img src="avatar.jpg" alt="Avatar" class="avatar"><br>
+		<h5 style=""><?php echo "@".$username; ?></h5>
+		</div>
+	
 	<div class="storycontent">
-		<div class="storyimg"><img src=<?php echo $row['story_img'];?>></div>
+		<div class="storyimg"><img src=<?php echo 'blog_files/'.$row['blog_img'];?>></div>
 		<div class="storydata"><?php echo $data;?></div>
 	</div>
 
@@ -68,16 +76,16 @@ function googleTranslateElementInit() {
 	if((--$id)>0)
 	{?>
 	
-	<a style="color:maroon; text-decoration:none; float:left;" href="storycontent.php?story_id=<?php echo $id;?>">&lt;&lt;Prev</a>
+	<a style="color:maroon; text-decoration:none; float:left;" href="blogcontent.php?blog_id=<?php echo $id;?>">&lt;&lt;Prev</a>
 	<?php
 	}
-	$qry1="SELECT * FROM storycontent";
+	$qry1="SELECT * FROM blog";
 	$result1=$conn->query($qry1);
 	$num_rows = mysqli_num_rows($result1);
 	if( (++$id) < $num_rows )
 	{ ?>
 
-		<a style="color:maroon; text-decoration:none; float:right;" href="storycontent.php?story_id=<?php echo ++$id;?>">Next&gt;&gt;</a>
+		<a style="color:maroon; text-decoration:none; float:right;" href="blogcontent.php?blog_id=<?php echo ++$id;?>">Next&gt;&gt;</a>
 	<?php } ?>
 	</div>
 </div>

@@ -1,5 +1,6 @@
 <?php 
 $page = "home";
+session_start();
 ?>
 <!DOCTYPE html>
 <html>

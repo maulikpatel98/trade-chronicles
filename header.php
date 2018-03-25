@@ -4,7 +4,14 @@
   <a href="index.php" class="logo">Trade Chronicle</a>
   
   <div class="header-right">
-    <a class="active" href="#home">login</a>
+  <a href="http://commerce.gov.in/" style="float:right;padding:0px;"><img src="logo.jpg" style="float:right;margin-left:20px;padding:0px;verticle-align:center;width:70px;height:70px;border-radius:50%;"></a>
+    <?php
+      if(isset($_SESSION['user'])) 
+      echo '<a class="active" href="logout.php">logout</a>';
+      else
+      echo '<a class="active" href="login.php">login</a>';
+    
+    ?>
     <a href="#contact">Contact</a>
     <a href="#about">About</a>
     <!--google translate-->
@@ -17,6 +24,7 @@ function googleTranslateElementInit() {
   
   </div>
   <!--google translate-->
+  
   </div>
 </div>
 
@@ -24,8 +32,10 @@ function googleTranslateElementInit() {
 <!--header completed-->
 <!--subnav-->
 <div id="myHeader">
-<button class="tablink" onclick="openPage('Home', this, '#ff9966')"  id="defaultOpen" >History</button>
-<button class="tablink" onclick="openPage('News', this, '#ffcc66')">Times Now</button>
+<button class="tablink" onclick="openPage('Home', this, '#ff9966')"   
+  <?php if($page=='home'||$page=='timeline'||$page=='story'||$page=='todayinhistory'||$page=='anecdote'){echo 'id="defaultOpen"';}?> >History</button>
+<button class="tablink" onclick="openPage('News', this, '#ffcc66')"
+  <?php if($page=='blog'||$page=='topfacts'||$page=='news'||$page=='trendingnow'){echo 'id="defaultOpen"';}?>>Times Now</button>
 
 
 
@@ -42,7 +52,7 @@ onclick="location.href='story.php';">Stories</button>
 onclick="location.href='todayinhistory.php';">Today in history</button>
 <button class="timetravel" id="H"
 <?php if($page=='anecdote'){echo 'style="background-color:#555"';}?>
-onclick="location.href='todayinhistory.php';">Anecdotes</button>
+onclick="location.href='#';">Anecdotes</button>
 </div>
 
 <div id="News" class="tabcontent">
@@ -50,7 +60,9 @@ onclick="location.href='todayinhistory.php';">Anecdotes</button>
 <button class="timesnow" id="N">Trending Now</button>
 <button class="timesnow" id="N">News</button>
 <button class="timesnow" id="N">Top Facts</button>
-<button class="timesnow" id="N">Blogs</button>
+<button class="timesnow" id="N" 
+<?php if($page=='blog'){echo 'style="background-color:#555"';}?>
+onclick="location.href='blog.php';">Blogs</button>
 </div>
 
 </div>

@@ -1,5 +1,6 @@
 <?php 
 $page = "story";
+session_start();
 ?>
 <?php
 $qry="SELECT * FROM storycontent";

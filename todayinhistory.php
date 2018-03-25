@@ -1,5 +1,6 @@
 <?php 
 $page = "todayinhistory";
+session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,12 +44,12 @@ $conn1=mysqli_connect("localhost","root","","trade");
 $result1=$conn1->query($qry1);
 $row1=$result1->fetch_assoc();
 
-$my_file = $row1["tih_file"];
+$my_file = 'tih_files/'.$row1["tih_file"];
 $title = $row1["tih_name"];
 $handle = fopen($my_file, 'r') or die('Cannot open file:'.$my_file);
 $data = fread($handle,filesize($my_file));
 } else{
-      $init_file = $row['tih_file'];
+      $init_file = 'tih_files/'.$row['tih_file'];
       $title = $row['tih_name'];
 			$handle = fopen($init_file, 'r') or die('Cannot open file:'.$init_file);
 			$data = fread($handle,filesize($init_file));
