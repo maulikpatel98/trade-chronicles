@@ -2,18 +2,16 @@
 
 <div class="header" >
   <a href="index.php" class="logo">Trade Chronicle</a>
-  
+ 
   <div class="header-right">
   <a href="http://commerce.gov.in/" style="float:right;padding:0px;"><img src="logo.jpg" style="float:right;margin-left:20px;padding:0px;verticle-align:center;width:70px;height:70px;border-radius:50%;"></a>
     <?php
       if(isset($_SESSION['user'])) 
-      echo '<a class="active" href="logout.php">logout</a>';
+      echo '<a class="active " href="logout.php">logout</a>';
       else
       echo '<a class="active" href="login.php">login</a>';
     
     ?>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
     <!--google translate-->
   <div style="overflow:hidden;">
   <div id="google_translate_element"></div><script type="text/javascript">
@@ -25,7 +23,8 @@ function googleTranslateElementInit() {
   </div>
   <!--google translate-->
   
-  </div>
+  </div><br><br><br>
+  <h4 style="float:left;padding:2px;margin:0px;color:white;margin-left:25px;">I T I H A S - International Trade of India History | Anecdotes | Stories</h4> 
 </div>
 
 
@@ -35,7 +34,7 @@ function googleTranslateElementInit() {
 <button class="tablink" onclick="openPage('Home', this, '#ff9966')"   
   <?php if($page=='home'||$page=='timeline'||$page=='story'||$page=='todayinhistory'||$page=='anecdote'){echo 'id="defaultOpen"';}?> >History</button>
 <button class="tablink" onclick="openPage('News', this, '#ffcc66')"
-  <?php if($page=='blog'||$page=='topfacts'||$page=='news'||$page=='trendingnow'){echo 'id="defaultOpen"';}?>>Times Now</button>
+  <?php if($page=='blog'||$page=='fact'||$page=='news'||$page=='trendingnow'){echo 'id="defaultOpen"';}?>>Times Now</button>
 
 
 
@@ -52,16 +51,18 @@ onclick="location.href='story.php';">Stories</button>
 onclick="location.href='todayinhistory.php';">Today in history</button>
 <button class="timetravel" id="H"
 <?php if($page=='anecdote'){echo 'style="background-color:#555"';}?>
-onclick="location.href='#';">Anecdotes</button>
+onclick="location.href='anecdote.php';">Anecdotes</button>
 </div>
 
 <div id="News" class="tabcontent">
   
-<button class="timesnow" id="N">Trending Now</button>
-<button class="timesnow" id="N">News</button>
-<button class="timesnow" id="N">Top Facts</button>
-<button class="timesnow" id="N" 
-<?php if($page=='blog'){echo 'style="background-color:#555"';}?>
+<button class="timesnow" id="N" <?php if($page=='trendingnow'){echo 'style="background-color:#555"';}?>
+onclick="location.href='trendingnow.php';">Trending Now</button>
+<button class="timesnow" id="N" <?php if($page=='news'){echo 'style="background-color:#555"';}?>
+onclick="location.href='news.php';">News Feeds</button>
+<button class="timesnow" id="N" <?php if($page=='fact'){echo 'style="background-color:#555"';}?>
+onclick="location.href='facts.php';">Top Facts</button>
+<button class="timesnow" id="N" <?php if($page=='blog'){echo 'style="background-color:#555"';}?>
 onclick="location.href='blog.php';">Blogs</button>
 </div>
 

@@ -7,8 +7,6 @@
 $page="blog";
 ?>
 <?php 
-include_once('header.php');
-
 
 $qry="SELECT * FROM blog";
 $conn=mysqli_connect("localhost","root","","trade");
@@ -23,6 +21,11 @@ $result=$conn->query($qry);
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<!--header -->
+
+<?php include_once("header.php") ?>
+
+<!--header completed-->
 	<!--description-->
 <div class="description">
   
@@ -34,7 +37,6 @@ $result=$conn->query($qry);
 here you can get articles and blogs written by people about different trades, to read more you can just click the image.! 
 </div>
 
-	
 <div class="infotitle" style="font-size:30px;margin-top:10px;">
   upload your own blog
 </div>

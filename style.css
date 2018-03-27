@@ -37,6 +37,7 @@ body {
 .header a.active {
   /*background-color: #ff9966;*/
   color: white;
+  margin-right: 20px;
 }
 
 .header-right {
@@ -417,7 +418,7 @@ a.goog-te-menu-value{
 .storycontainer{
   width: 85%;
   overflow: hidden;
-  margin: 20px auto;
+  margin: 120px auto;
   padding: 15px;
   border-right: solid 2px maroon;
   border-left: solid 2px maroon;
@@ -485,4 +486,33 @@ input:hover {
   width: 90%;
   margin: 5px auto;
   height: 100px;
+}
+
+
+/* news feed styles */
+
+.recentupdates{
+  height: 300px;
+  overflow: auto;
+}
+
+.newsfeeds{
+    box-shadow:0px 10px 10px 0px rgba(0,0,0,0.7);
+    margin-top:20px;
+    padding:10px;
+    border: 3px solid maroon;
+    border-radius: 5px;
+}
+.youuploaded{
+  float: right;
+  margin: 10px 25px 10px 0px; 
+  padding: 5px;
+  width: 33%;
+}
+.userblogdiv{
+  box-shadow:0px 5px 5px 0px rgba(0,0,0,0.7);
+  margin-top:20px;
+  padding:10px;
+  border: 3px solid maroon;
+  border-radius: 5px; 
 }

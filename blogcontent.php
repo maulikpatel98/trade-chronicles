@@ -1,4 +1,5 @@
 <?php
+$page="blog";
 session_start();
 if(!isset($_SESSION['user']))
 echo "<script>location.href='login.php?context=b'</script>";
@@ -26,33 +27,7 @@ $data = fread($handle,filesize('blog_files/'.$my_file));
 
 <!--header -->
 
-<div class="header" >
-  <a href="index.php" class="logo">Trade Chronicle</a>
-  
-  <div class="header-right">
-    <a href="http://commerce.gov.in/" style="float:right;padding:0px;"><img src="logo.jpg" style="float:right;margin-left:20px;padding:0px;verticle-align:center;width:70px;height:70px;border-radius:50%;"></a>
-    <?php
-      if(isset($_SESSION['user'])) 
-      echo '<a class="active" href="logout.php">logout</a>';
-      else
-      echo '<a class="active" href="login.php">login</a>';
-    
-    ?>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
-    <!--google translate-->
-  <div style="overflow:hidden;">
-  <div id="google_translate_element"></div><script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-}
-</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  
-  </div>
-  <!--google translate-->
-  </div>
-</div>
-
+<?php include_once 'header.php'; ?>
 
 <!--header completed-->
 

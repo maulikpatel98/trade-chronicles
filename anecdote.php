@@ -1,9 +1,9 @@
 <?php 
-$page = "story";
+$page = "anecdote";
 session_start();
 ?>
 <?php
-$qry="SELECT * FROM storycontent";
+$qry="SELECT * FROM anecdote";
 $conn=mysqli_connect("localhost","root","","trade");
 $result=$conn->query($qry);
 
@@ -12,27 +12,27 @@ $result=$conn->query($qry);
 // 	echo "<a href='storycontent.php?story_id=" . $row['story_id'] . "'" . "><img src='" . $row['story_img'] ."'></a>";
 	
 // }
-?>
+	?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Story</title>
+	<title>Anecdote</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
-<?php include_once('header.php');?>
+<?php include_once('header.php'); ?>
 
 <!--description-->
 <div class="description">
   
 <div class="infotitle">
-  Trade Stories
+  Anecdotes
 </div>
 <div class="infocontent">
-  !!..Welcome to the trade stories..!!<br>
-here you can get articles and blogs about different trade stories, to know more you can just click the image.! 
+  !!..Welcome to the Anacdotes..!!<br>
+here you can get various short stories and incidents about trades, to know more you can just click the image.! 
 </div>
 
 </div>
@@ -46,10 +46,10 @@ while($row=$result->fetch_assoc())
 	?>
 	
 <div class="card space">
-  <a class="cardlink" href="storycontent.php?story_id=<?php echo $row['story_id']; ?>">
-  <img src=<?php echo $row['story_img'];?> alt="Avatar" style="width:100%;height:200px">
+  <a class="cardlink" href="anecdotecontent.php?an_id=<?php echo $row['an_id']; ?>">
+  <img src=<?php echo $row['an_img'];?> alt="Avatar" style="width:100%;height:200px">
   <div class="container">
-    <h4><b><?php echo $row['story_name'];?></b></h4> 
+    <h4><b><?php echo $row['an_name'];?></b></h4> 
     <p>Architect & Engineer</p> 
   </div>
   </a>

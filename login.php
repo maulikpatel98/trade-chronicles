@@ -32,7 +32,15 @@ $ans=mysqli_num_rows($result);
 	$_SESSION["uid"]=$row['user_id'];
 	//echo "successful login";
 		if(isset($_GET['context']))
-		echo ("<script>location.href='blog.php'</script>");
+		{
+			$context = $_GET['context'];
+			if ($context=='b') {
+				echo ("<script>location.href='blog.php'</script>");
+			}
+			else if ($context=='n') {
+				echo ("<script>location.href='news.php'</script>");
+			}
+		}
 		else
 		echo ("<script>location.href='index.php'</script>");
 

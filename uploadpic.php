@@ -16,7 +16,8 @@ if(isset($_POST['submit']))
 	// $fileExtensions = array('.txt');
 	$username=$_SESSION['user'];
 	$blog_name=$_POST['blogtitle'];
-	$blog_img=$_FILES['blogimage']['name'];	
+	$blog_img=$_FILES['blogimage']['name'];
+	$blog_name = preg_replace('/\s+/', '_', $blog_name);   	
 	$ocr_img=$_FILES['ocrimage']['name'];
 	$blog_img = strtolower($blog_img);
 	preg_match('/^(.*?)(\.\w+)?$/', $blog_img, $matches1);

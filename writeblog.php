@@ -24,7 +24,7 @@ if(isset($_POST['submit']))
 	$blog_img = strtolower($blog_img);
 	preg_match('/^(.*?)(\.\w+)?$/', $blog_img, $matches);
 	$extension = isset($matches[2]) ? $matches[2] : '';
-		echo $extension;
+		
 		if (!in_array($extension, $imgExtensions)) {
   			die("File extension not approved");
 		}
