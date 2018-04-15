@@ -134,6 +134,24 @@ we wiil convert content from the picture into the blog so it can reach to more p
 
 				<!-- blog file(if you dont want to write you can also upload txt file for content) <input class="inputfield" type="file" name="blogfile" ><br><br> -->
 				
+				<!-- <select class="inputfield">
+    				<option value="0">Select State</option>
+    				<option value="1">Gujarat</option>
+    				<option value="2">Madhya pardesh</option>
+    				<option value="3">Maharashtra</option>
+    				<option value="4">Tamil Nadu</option>
+    				<option value="5">Kerala</option>
+				    <option value="6">Karnataka</option>
+				    <option value="7">Rajsthan</option>
+  				</select><br><br>
+
+  				<select class="inputfield">
+    				<option value="0">Select category</option>
+    				<option value="1">agriculture</option>
+    				<option value="2">silk</option>
+    				<option value="3">dye</option>
+  				</select><br><br> -->
+
 				<input class="tablink" style="float:none; width:30%; height:auto;" type="submit" name="submit" value="upload">
 			</form>
 

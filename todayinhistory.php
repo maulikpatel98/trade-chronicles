@@ -60,12 +60,12 @@ $data = fread($handle,filesize($my_file));
 <div class="tih_content">
 
 <!--code for video only when page initialized-->
-<?php if (isset($init_file)) {
+<!-- ?php if (isset($init_file)) {
   echo '<div class="tih_video" style="text-align:center; padding:0px 15px;">
   <video style="width:100%;" src="tih_video.mp4" controls></video>
 </div>';
 
-}?>
+}? -->
 
 <div class="tih_data" style="padding:50px; font-size:20px;text-align:justify; color:#333;font-family:times new roman;">
 	<h1 style="text-align:center;"><?php echo $title ?></h1>

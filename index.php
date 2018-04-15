@@ -10,24 +10,136 @@ session_start();
   
 </head>
 <body>
-<?php include_once('header.php');?>
+<?php include_once('header.php');
+if(isset($_GET['cn']))
+{
+   $stid=0;
+	$cnid = $_GET['cn'];
+}
+if(isset($_GET['st']))
+{
+   $cnid=0;
+	$stid = $_GET['st'];
+}
+	if(!isset($_GET['cn']) && !isset($_GET['st']) )
+{
+$stid=0;
+$cnid=0; }	?>
 <!--slide-->
 <div class="slideshow">
 <div class="slideshow-container">
 
 <div class="mySlides fade">
   
-  <img src="header1.jpg" style="width:100%;height:450px">
+  <img src=<?php 
+  if(isset($cnid))
+  {
+  if($cnid==1 )
+  {
+	  echo "indiajapan.jpg";//img1
+  }	  
+  else if($cnid==2 )
+  {
+	 echo "indiaitaly.jpg"; //img2
+  }
+  else if($cnid==3)
+  {
+	 echo "indiafrance.jpg";//img3  
+  }
+  }
+  if(isset($stid))
+  {
+  if($stid==1)
+  {
+	  echo "historyofsurat.jpg";
+  }
+  else if( $stid==2)
+  {
+	   echo "bombay.jpg";
+  }
+   else if($stid==3)
+  {
+	  
+  }
+  }
+  if($cnid==0 && $stid==0)
+echo "header1.jpg"	?> style="width:100%;height:450px">
 </div>
 
 <div class="mySlides fade">
   
-  <img src="indian_ocean_trade.jpg" style="width:100%;height:450px">
+  <img src=<?php 
+  if(isset($cnid))
+  {
+  if($cnid==1 )
+  {
+	  //img1
+  }	  
+  else if($cnid==2 )
+  {
+	  //img2
+  }
+  else if($cnid==3)
+  {
+	//img3  
+  }
+  }
+  if(isset($stid))
+  {
+  if($stid==1)
+  {
+	  
+  }
+  else if( $stid==2)
+  {
+	  echo "bombay1.jpg";
+  }
+   else if($stid==3)
+  {
+	  
+  }
+  }
+  
+if($cnid==0 && $stid==0)
+echo "indian_ocean_trade.jpg"  ?>  style="width:100%;height:450px">
 </div>
 
 <div class="mySlides fade">
   
-  <img src="namo1.jpg" style="width:100%;height:450px">
+  <img src=<?php 
+  if(isset($cnid))
+  {
+  if($cnid==1 )
+  {
+	  //img1
+  }	  
+  else if($cnid==2 )
+  {
+	  //img2
+  }
+  else if($cnid==3)
+  {
+	//img3  
+  }
+  }
+  if(isset($stid))
+  {
+  if($stid==1)
+  {
+	  
+  }
+  else if( $stid==2)
+  {
+	  echo "bombay2.jpg";
+  }
+   else if($stid==3)
+  {
+	  
+  }
+  }
+  
+if($cnid==0 && $stid==0)
+echo "namo1.jpg"  ?> style="width:100%;height:450px">
   <div class="top-right">
   </div>
 </div>
@@ -62,155 +174,100 @@ function showSlides() {
     setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
 </script>
+<?php
+  if(isset($cnid))
+  {
+  if($cnid==1 )
+  {
+	  $my_file="indiajapan.txt";
+	// echo "content from file indiajapan.txt" ;//img1
+     $handle = fopen($my_file, 'r') or die('Cannot open file:  '.$my_file);
+    $data = fread($handle,filesize($my_file));  
+	$dataarr = explode('#', $data);
+      for($i=0;$i<count($dataarr);$i++) 
+      {
+      ?> 
+        <div class="storycontent"><p><?php echo $dataarr[$i]; ?></p></div> 
+      <?php 
+      }
+     
+  }	  
+  else if($cnid==2 )
+  {
+	  $my_file="indiaitaly.txt";
+	// echo "content from file indiaitaly.txt" ;//img2
+  $handle = fopen($my_file, 'r') or die('Cannot open file:  '.$my_file);
+$data = fread($handle,filesize($my_file));
+  $dataarr = explode('#', $data);
+      for($i=0;$i<count($dataarr);$i++) 
+      {
+      ?> 
+        <p><?php echo $dataarr[$i]; ?></p> 
+      <?php 
+      }
+  }
+  else if($cnid==3)
+  {
+	$my_file="indiafrance.txt";
+//	 echo "content from file indiafrance.txt" ;//img3  
+  $handle = fopen($my_file, 'r') or die('Cannot open file:  '.$my_file);
+$data = fread($handle,filesize($my_file));
+  echo $data;
+  }
+  }
+  if(isset($stid))
+  {
+  if($stid==1)
+  {
+	  $my_file="historyofsurat.txt";
+	// echo "content from file historyofsurat.txt" ;
+  $handle = fopen($my_file, 'r') or die('Cannot open file:  '.$my_file);
+$data = fread($handle,filesize($my_file));
+  $dataarr = explode('#', $data);
+      for($i=0;$i<count($dataarr);$i++) 
+      {
+      ?> 
+        <p><?php echo $dataarr[$i]; ?></p> 
+      <?php 
+      }
+  }
+  else if( $stid==2)
+  {
+	  $my_file = "bombay.txt";
+	//  echo "content";
+  $handle = fopen($my_file, 'r') or die('Cannot open file:  '.$my_file);
+$data = fread($handle,filesize($my_file));
+  $dataarr = explode('#', $data);
+      for($i=0;$i<count($dataarr);$i++) 
+      {
+      ?> 
+        <p><?php echo $dataarr[$i]; ?></p> 
+      <?php 
+      }
+  }
+   else if($stid==3)
+  {
+	  
+  }
+  }
+?>
+<?php if ($stid==0 && $cnid==0) {
+  ?>
 
-<!--component-->
-<div class="div_title"> <h2> Trending now</h2> </div>
-<div style="display:inline-flex;">
-<div class="card space">
-  <a class="cardlink" href="">
-  <img src="his1.jpg" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</a>
+<div style="text-align:center;"><p style="font-size:40px;color:maroon;">Traders map</p>
+<img src="india.jpg" usemap="#workmap">
+<map name="workmap">
+    <area shape="rect" coords="300,700,400,800" href="statesdetail.php?st_id=5">
+    <area shape="rect" coords="200,800,300,900" href="statesdetail.php?st_id=2">
+    <area shape="rect" coords="300,900,400,1000" href="statesdetail.php?st_id=1">
+    <area shape="rect" coords="200,600,300,700" href="statesdetail.php?st_id=4">
+    <area shape="rect" coords="100,500,200,600" href="statesdetail.php?st_id=3">
+    <area shape="rect" coords="350,350,450,500" href="statesdetail.php?st_id=6">
+    <area shape="rect" coords="200,920,300,1020" href="statesdetail.php?st_id=7">
+</map>
 </div>
-
-<div class="card space">
-  <a class="cardlink" href="">
-  <img src="his2.jpg" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-  </a>
-</div>
-
-<div class="card space">
-  <a class="cardlink" href="">
-  <img src="his3.jpg" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-  </a>
-</div>
-</div>
-<button class="button button2">more info..>></button>
-<br>
-
-<div class="div_title"> <h2> History</h2> </div>
-
-<div style="display:inline-flex;">
-<div class="card space">
-  <a class="cardlink" href="">
-  <img src="his1.jpg" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</a>
-</div>
-
-<div class="card space">
-  <a class="cardlink" href="">
-  <img src="his2.jpg" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-  </a>
-</div>
-
-<div class="card space">
-  <a class="cardlink" href="">
-  <img src="his3.jpg" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-  </a>
-</div>
-</div>
-<button class="button button2">more info..>></button>
-<br>
-
-
-<div class="div_title"> <h2> Top Facts</h2> </div>
-
-
-<div style="display:inline-flex;">
-<div class="card space">
-  <a class="cardlink" href="">
-  <img src="his1.jpg" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</a>
-</div>
-
-<div class="card space">
-  <a class="cardlink" href="">
-  <img src="his2.jpg" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-  </a>
-</div>
-
-<div class="card space">
-  <a class="cardlink" href="">
-  <img src="his3.jpg" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-  </a>
-</div>
-</div>
-<button class="button button2">more info..>></button>
-<br>
-
-
-<div class="div_title"> <h2> Today in History</h2> </div>
-
-
-<div style="display:inline-flex;">
-<div class="card space">
-  <a class="cardlink" href="">
-  <img src="his1.jpg" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</a>
-</div>
-
-<div class="card space">
-  <a class="cardlink" href="">
-  <img src="his2.jpg" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-  </a>
-</div>
-
-<div class="card space">
-  <a class="cardlink" href="">
-  <img src="his3.jpg" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-  </a>
-</div>
-</div>
-<button class="button button2" style="margin-bottom:10px">more info..>></button>
-<br>
-
+  <?php
+} ?>
 <?php include_once('footer.php');?>
 </body>
 </html>

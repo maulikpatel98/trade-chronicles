@@ -80,6 +80,10 @@ $ans=mysqli_num_rows($result);
 				your username <input class="inputfield" type="text" name="uname" placeholder="username" required="TRUE" autofocus><br><br>
 				your email <input class="inputfield" type="email" name="email" placeholder="email address" required="TRUE"><br><br>
 				your password <input class="inputfield" type="password" name="pass" placeholder="password" required="TRUE"><br><br>
+				<div style="width:100%; display:inline-flex;">
+				signup type<input type="radio" name="r1">buyer
+							<input type="radio" name="r2" >seller
+							<input type="radio" name="r3" >writers</div><br><br>
 				<input class="tablink" style="float:none; width:30%; height:auto;" type="submit" name="submit" value="signup">
 			</form>
 

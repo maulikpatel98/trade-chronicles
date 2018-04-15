@@ -78,12 +78,19 @@ include_once('header.php');
 // echo "$rowcount";
 ?>
 <!-- <div class="recentupdates" onmouseover="pauseDiv();" onmouseout="resumeDiv();"> -->
-<marquee onmouseover="stop()" style="height 200px" onmouseout="start()" scrollamount="2" scrolldelay="1" direction="up" align="center">
-<?php while($row=$result->fetch_assoc())
-{
-	echo "<p>".$row['username'] . " recently uploaded a blog on " . $row['blog_name'] . "<br></p>";	
-}	
-?>
+<marquee onmouseover="stop()" style="height:200px" onmouseout="start()" scrollamount="2" scrolldelay="1" direction="up" align="center">
+
+<!--?//php while($row=$result->fetch_assoc())
+//{
+//	echo "<p><a href='http://www.google.com'>".$row['username'] . " recently uploaded a blog on " . $row['blog_name'] . "<br></a></p>";	
+//}
+?-->
+
+	<p><a style="font-size:20px;" href='http://tradeshows.tradeindia.com/electrical-building-technology-india/'>11 October 2018 - 13 October 2018 Electrical Building Technology India 2018 - New Delhi, India</a></p>
+	<p><a style="font-size:20px;" href='http://tradeshows.tradeindia.com/giftsworldexpo/'>10 August 2018 - 12 August 2018 - Gifts World Expo 2018 - New Delhi, India</a></p>
+	<p><a style="font-size:20px;" href='http://tradeshows.tradeindia.com/pro-wave-expo/'>06 April 2018 - 08 April 2018 - Pro Wave Expo 2018 - Bengaluru, India</a></p>
+	<p><a style="font-size:20px;" href='http://tradeshows.tradeindia.com/ctf2017/'>09 April 2018 - 11 April 2018 - CTF - China International Tire & Wheel (Qingdao) Fair 2018 - Qingdao, China</a></p>
+
 </marquee>
 
 		<!-- <script type="text/javascript">

@@ -15,9 +15,6 @@ if(isset($_POST['submit']))
 
 	$fileExtensions = array('.txt');
 
-
-
-
 	$username=$_SESSION['user'];
 	$blog_name=$_POST['blogtitle'];
 	$blog_img=$_FILES['blogimage']['name'];	
@@ -37,6 +34,21 @@ if(isset($_POST['submit']))
 		fwrite($handle,$content);
 		$blog_file = $blog_name.'.txt';
 		echo $blog_file;
+
+
+		// if($_POST["cmbox"] == "1")
+		// 	{
+		// 		echo "string";
+		// 	$blog_state = "gujarat";
+		// 	}
+		// if($_POST["cmbox1"] == "2")
+		// 	{
+		// 		echo "string";
+		// 	$blog_category = "silk";
+		// 	}
+
+		// $qry="INSERT INTO blog (username,blog_name,blog_file,blog_img,blog_state,blog_category) VALUES ('$username','$blog_name','$blog_file','$blog_img','$blog_state','$blog_category')";
+
 
 		$qry="INSERT INTO blog (username,blog_name,blog_file,blog_img) VALUES ('$username','$blog_name','$blog_file','$blog_img')";
 		$result=$conn->query($qry);
@@ -107,7 +119,30 @@ if(isset($_POST['submit']))
 
 				blog file(if you dont want to write you can also upload txt file for content) <input class="inputfield" type="file" name="blogfile" ><br><br>
 				
+
+				<!-- <div class="custom-select" style="width:200px;">
+ -->  				
+  				<!-- <select class="inputfield" name="cmbox">
+    				<option value="0">Select State</option>
+    				<option value="1">Gujarat</option>
+    				<option value="2">Madhya pardesh</option>
+    				<option value="3">Maharashtra</option>
+    				<option value="4">Tamil Nadu</option>
+    				<option value="5">Kerala</option>
+				    <option value="6">Karnataka</option>
+				    <option value="7">Rajsthan</option>
+  				</select><br><br>
+
+  				<select class="inputfield" name="cmbox1">
+    				<option value="0">Select category</option>
+    				<option value="1">agriculture</option>
+    				<option value="2">silk</option>
+    				<option value="3">dye</option>
+  				</select><br><br> -->
+				<!-- </div> -->
+
 				<input class="tablink" style="float:none; width:30%; height:auto;" type="submit" name="submit" value="upload">
+
 			</form>
 
 		</div>

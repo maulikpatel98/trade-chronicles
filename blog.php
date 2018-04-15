@@ -63,7 +63,7 @@ while($row=$result->fetch_assoc())
   <img src=<?php echo 'blog_files/'.$row['blog_img'];?> alt="Avatar" style="width:100%;height:200px">
   <div class="container">
     <h4><b><?php echo $row['blog_name'];?></b></h4> 
-    <p>Architect & Engineer</p> 
+     
   </div>
   </a>
 </div>

@@ -43,14 +43,36 @@ here you can get various facts about trades, to know more you can just click the
 <?php
 while($row=$result->fetch_assoc())
 {
-	?>
+	
+$my_file = $row['fact_file'];
+$handle = fopen($my_file, 'r') or die('Cannot open file:  '.$my_file);
+$data = fread($handle,filesize($my_file));
+
+  ?>
 	
 <div class="card space">
   <a class="cardlink" href="factcontent.php?fact_id=<?php echo $row['fact_id']; ?>">
   <img src=<?php echo $row['fact_img'];?> alt="Avatar" style="width:100%;height:200px">
   <div class="container">
     <h4><b><?php echo $row['fact_name'];?></b></h4> 
-    <p>Architect & Engineer</p> 
+     
+  </div>
+  </a>
+</div>
+
+<div class="card space" style="width:60%;">
+  <!-- <a class="cardlink" href="factcontent.php?fact_id=<//?php echo $row['fact_id']; ?>"> -->
+  <!-- <img src=<//?php echo $row['fact_img'];?> alt="Avatar" style="width:100%;height:200px"> -->
+  <div class="container">
+    <h4><b><?php echo $row['fact_name'];?></b></h4> 
+    <?php  $dataarr = explode('#', $data);
+      for($i=0;$i<count($dataarr);$i++) 
+      {
+      ?> 
+        <p><?php echo $dataarr[$i]; ?></p> 
+      <?php 
+      }
+     ?>
   </div>
   </a>
 </div>

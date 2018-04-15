@@ -42,7 +42,16 @@ $data = fread($handle,filesize('blog_files/'.$my_file));
 	
 	<div class="storycontent">
 		<div class="storyimg"><img src=<?php echo 'blog_files/'.$row['blog_img'];?>></div>
-		<div class="storydata"><?php echo $data;?></div>
+		<div class="storydata">
+		<?php  $dataarr = explode('#', $data);
+      for($i=0;$i<count($dataarr);$i++) 
+      {
+      ?> 
+        <p><?php echo $dataarr[$i]; ?></p> 
+      <?php 
+      }
+     ?>
+		</div>
 	</div>
 
 	<div class="prev_next">
